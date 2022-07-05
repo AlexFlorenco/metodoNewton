@@ -1,3 +1,8 @@
+'''
+Alexandre Florenço
+https://github.com/AlexFlorenco
+'''
+
 from sympy import *
 from sympy.plotting import *
 
