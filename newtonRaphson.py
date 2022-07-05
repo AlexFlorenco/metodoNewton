@@ -7,6 +7,10 @@ def newton(f, df, x0, epsilon, maxIter):    #f = Função f; df = Derivada de f;
     print("\nO X\u2080 inserido já é uma raíz da função %s" % (funcao))
     return (0, x0, contador)          #Retorna x0 e encerra
 
+  elif abs(f(x0)) <= epsilon:   #Verifica se x0 é aproximação
+    print("\nO X\u2080 inserido já é uma aproximação da raíz da função %s" % (funcao))
+    return (0, x0, contador)    #Retorna x0 e encerra
+
   print("\nk \t x \t\t |f(x)| \t |X\u2099 - X\u2099\u208b\u2081|")          #Cabeçalho
   print("%d \t %.5f \t %.5f \t" % (0, x0, abs(f(x0))))    #Aproximação inicial
 
@@ -42,6 +46,9 @@ def f(x):   #Função f
 def df(x):    #Derivada de f(x)
   return eval(derivada)
 
+def plotar(funcao):
+  plot(eval(funcao), (x, -5,5), title= "Gráfico da Função", legend=true)
+
 #Parâmetros
 x = symbols("x")
 e = symbols("e")
@@ -71,7 +78,10 @@ if erro:
 elif raiz is not None:
   if contador == 0:
     print("\033[1mA raíz encontrada foi: %.5f\n" % (raiz))
+    plotar(funcao)
+    
   elif contador > 0:
     print("A aproximação da raíz encontrada foi \033[1;30;47m%.5f\033[0m, após %d iterações.\n" % (raiz, contador))
+    plotar(funcao)
 
-plot(eval(funcao), (x, -5,5), title= "Gráfico da Função", legend=true)
+
