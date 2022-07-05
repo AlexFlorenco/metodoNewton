@@ -1,2 +1,2 @@
 # Método de Newton-Raphson
-Algoritmo do método de Newton Raphson - Disciplina de Cálculo Numérico
+Algoritmo do método numérico de Newton-Raphson tem o objetivo de estimar as raízes de uma função.
